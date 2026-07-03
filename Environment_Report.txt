@@ -1,0 +1,55 @@
+1. Username and groups associated with your account
+
+Command(s): who
+
+Output: 
+shrey    tty2         2026-07-03 15:50 (tty2)
+
+Explanation: The who command displays information about users currently logged into the system. The output confirms the active user session and provides details such as the terminal and login time. 
+
+2. Current shell being used
+
+Command: echo $SHELL
+
+Output: 
+/bin/bash
+
+Explanation: The echo $SHELL command displays the default shell currently being used by the user. The output confirms that the Bash shell is the active command-line interpreter.
+
+3. Current working directory
+
+Command: pwd
+
+Output:
+/home/shrey
+
+Explanation: The pwd command displays the current working directory of the user. The output shows the exact location in the Linux file system where the terminal is currently operating.
+
+4. List of files and directories in the workspace
+
+Command(s): ls (-a used if hidden files to be seen too)
+
+Output:
+Arduino    Downloads  Pictures  snap              Templates
+Desktop    foo        Public    source            Terminal
+Documents  Music      ros2_ws   Stewart-Platform  Videos
+
+Explanation: The ls command lists the files and directories present in the current working directory. The output helps verify the contents of the workspace and confirms that the required files and folders are accessible.
+
+5. Network connectivity verification
+
+Command: ping -c 5 google.com
+
+Output:
+PING google.com (142.250.140.101) 56(84) bytes of data.
+64 bytes from wj-in-f101.1e100.net (142.250.140.101): icmp_seq=1 ttl=113 time=112 ms
+64 bytes from wj-in-f101.1e100.net (142.250.140.101): icmp_seq=2 ttl=113 time=136 ms
+64 bytes from wj-in-f101.1e100.net (142.250.140.101): icmp_seq=3 ttl=113 time=323 ms
+64 bytes from wj-in-f101.1e100.net (142.250.140.101): icmp_seq=4 ttl=113 time=1064 ms
+64 bytes from wj-in-f101.1e100.net (142.250.140.101): icmp_seq=5 ttl=113 time=32.4 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4043ms
+rtt min/avg/max/mdev = 32.386/333.436/1064.105/377.535 ms, pipe 2
+
+Explanation: The ping command is used to verify network connectivity by sending packets to a remote server. The successful replies confirm that the system is connected to the network and can communicate with external hosts.
