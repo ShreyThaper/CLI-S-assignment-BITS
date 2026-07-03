@@ -1,1 +1,71 @@
+1. Open files identified
 
+Command:
+lsof
+
+Output: All the open files in screenshot. Too large to type here.
+
+Explanation:
+The lsof command lists all files currently opened by running processes in the Linux system. It helps identify which files are in use and which process is accessing them.
+
+2. File descriptor observations
+
+Command:
+ls -l /proc/$$/fd
+
+Output:
+total 0
+lrwx------ 1 shrey shrey 64 Jul  3 15:52 0 -> /dev/pts/0
+lrwx------ 1 shrey shrey 64 Jul  3 15:52 1 -> /dev/pts/0
+lrwx------ 1 shrey shrey 64 Jul  3 15:52 2 -> /dev/pts/0
+lrwx------ 1 shrey shrey 64 Jul  3 15:52 255 -> /dev/pts/0
+
+Explanation:
+The command displays the file descriptors associated with the current shell process. It shows how Linux manages standard input, standard output, standard error, and other open files.
+
+3. Output redirection and error redirection results
+
+Command:
+echo "Hello Linux" > output.txt
+cat output.txt
+ls nonexistentfile 2> error.txt
+cat error.txt
+
+Output:
+Hello
+ls: cannot access 'nonexistentfile': No such file or directory
+
+Explanation:
+The `>` operator redirects standard output to a file, while `2>` redirects standard error to a separate file. This allows normal output and error messages to be handled independently.
+
+4. Resource limits observed
+
+Command:
+ulimit -a
+
+Output:
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) 0
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 62403
+max locked memory           (kbytes, -l) 2007712
+max memory size             (kbytes, -m) unlimited
+open files                          (-n) 1024
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) 8192
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) 62403
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+
+Explanation:
+The ulimit command displays the resource limits applied to the current shell, such as file size, open files, stack size, and CPU time. These limits help prevent excessive resource usage by processes.
+
+5. Explanation of how Linux manages file I/O
+
+Explanation:
+Linux manages file input and output through file descriptors, where standard input, standard output, and standard error are assigned descriptor numbers 0, 1, and 2 respectively. It also supports redirection and resource limits to efficiently control how processes access files and system resources.
