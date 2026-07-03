@@ -5,6 +5,12 @@ mkdir ProjectWorkspace/{Documents,Reports,Scripts}
 tree ProjectWorkspace
 
 Output:
+ProjectWorkspace
+├── Documents
+├── Reports
+└── Scripts
+
+3 directories, 0 files
 
 Explanation:
 The mkdir command creates the project workspace along with the required subdirectories. The tree command displays the directory hierarchy, confirming that the workspace has been created successfully.
@@ -17,14 +23,16 @@ chmod 750 Project_Workspace_Report.txt
 ls -l Project_Workspace_Report.txt
 
 Output:
+-rw-rw-r-- 1 shrey shrey 0 Jul  3 17:56 a.txt
+
+-rwxrwxr-x 1 shrey shrey 0 Jul  3 17:56 a.txt
 
 Explanation:
 The ls -l command displays the permissions of the project directory before and after modification. The chmod command changes the permissions so that only the owner has full access, the group has read and execute access, and others have no access.
 
 3. Ownership details
 
-Command:
-ls -ld ProjectWorkspace
+Command: ls -ld ProjectWorkspace
 
 Output:
 
@@ -33,10 +41,10 @@ The ls -ld command shows the owner and group associated with the project workspa
 
 4. Umask value used
 
-Command:
-umask
+Command: umask
 
 Output:
+drwxrwxr-x 5 shrey shrey 4096 Jul  3 17:53 ProjectWorkspace
 
 Explanation:
 The umask command displays the default permission mask used when creating new files and directories. The displayed value determines which permission bits are removed from the default permissions.
