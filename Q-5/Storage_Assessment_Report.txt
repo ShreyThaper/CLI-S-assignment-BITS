@@ -58,8 +58,7 @@ The df -h command displays the total, used, and available disk space for each mo
 
 4. Inode utilization
 
-Command:
-df -i
+Command: df -i
 
 Output:
 Filesystem      Inodes  IUsed   IFree IUse% Mounted on
