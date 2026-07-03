@@ -1,0 +1,41 @@
+1. Username and groups associated with your account
+
+Command(s): who
+
+Output: 
+shrey    tty2         2026-07-03 15:50 (tty2)
+Explanation: The who command displays information about users currently logged into the system. The output confirms the active user session and provides details such as the terminal and login time. 
+
+2. Current shell being used
+
+Command:
+
+Output:
+
+Observation:
+
+3. Current working directory
+
+Command:
+
+Output:
+
+Observation:
+
+4. List of files and directories in the workspace
+
+Command(s):
+
+Output:
+
+Observation:
+
+5. Network connectivity verification
+
+Command:
+
+Output:
+
+Observation:
+
+Conclusion:
