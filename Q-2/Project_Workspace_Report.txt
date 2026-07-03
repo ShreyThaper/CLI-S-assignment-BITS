@@ -1,0 +1,47 @@
+1. Directory structure created
+
+Command:
+mkdir ProjectWorkspace/{Documents,Reports,Scripts}
+tree ProjectWorkspace
+
+Output:
+
+Explanation:
+The mkdir command creates the project workspace along with the required subdirectories. The tree command displays the directory hierarchy, confirming that the workspace has been created successfully.
+
+2. File permissions before and after modification
+
+Command:
+ls -l Project_Workspace_Report.txt
+chmod 750 Project_Workspace_Report.txt
+ls -l Project_Workspace_Report.txt
+
+Output:
+
+Explanation:
+The ls -l command displays the permissions of the project directory before and after modification. The chmod command changes the permissions so that only the owner has full access, the group has read and execute access, and others have no access.
+
+3. Ownership details
+
+Command:
+ls -ld ProjectWorkspace
+
+Output:
+
+Explanation:
+The ls -ld command shows the owner and group associated with the project workspace. This confirms that the directory belongs to the correct user and group.
+
+4. Umask value used
+
+Command:
+umask
+
+Output:
+
+Explanation:
+The umask command displays the default permission mask used when creating new files and directories. The displayed value determines which permission bits are removed from the default permissions.
+
+5. Explanation of how permissions protect project data
+
+Explanation:
+Linux file permissions control who can read, write, and execute files and directories. Restricting access prevents unauthorized users from viewing or modifying project files, thereby protecting the security and integrity of the project data.
