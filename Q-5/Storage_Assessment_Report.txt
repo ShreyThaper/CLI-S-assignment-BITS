@@ -3,6 +3,19 @@
 Command: lsblk
 
 Output:
+NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0
+       7:0    0 195.6M  1 loop /snap/arduino/85
+loop1
+       7:1    0     4K  1 loop /snap/bare/5
+loop2
+       7:2    0 358.2M  1 loop /snap/code/231
+loop3
+       7:3    0 425.9M  1 loop /snap/code/247
+loop4
+       7:4    0  55.5M  1 loop /snap/core18/2979
+
+//(..... continued till 24 loops) full output not added.
 
 Explanation:
 The lsblk command lists all block storage devices connected to the system, including disks, partitions, and their mount points. It helps identify the available storage resources and their organization.
@@ -12,6 +25,16 @@ The lsblk command lists all block storage devices connected to the system, inclu
 Command: mount
 
 Output:
+ysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+udev on /dev type devtmpfs (rw,nosuid,relatime,size=7987608k,nr_inodes=1996902,mode=755,inode64)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,noexec,relatime,size=1606176k,mode=755,inode64)
+/dev/nvme0n1p5 on / type ext4 (rw,relatime,errors=remount-ro,stripe=128)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,inode64)
+
+//full output not added.
 
 Explanation:
 The mount command displays all file systems currently mounted on the system. It shows the source device, mount point, file system type, and mount options used for each mounted file system.
@@ -21,6 +44,14 @@ The mount command displays all file systems currently mounted on the system. It 
 Command: df -h
 
 Output:
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.6G  2.4M  1.6G   1% /run
+/dev/nvme0n1p5   98G   27G   67G  29% /
+tmpfs           7.7G   80M  7.6G   2% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+efivarfs        268K  145K  119K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p1  256M   49M  208M  19% /boot/efi
+tmpfs           1.6G  128K  1.6G   1% /run/user/1000
 
 Explanation:
 The df -h command displays the total, used, and available disk space for each mounted file system in a human-readable format. It helps monitor storage utilization and identify file systems that are running low on space.
@@ -31,25 +62,23 @@ Command:
 df -i
 
 Output:
+Filesystem      Inodes  IUsed   IFree IUse% Mounted on
+tmpfs          2007715   1427 2006288    1% /run
+/dev/nvme0n1p5 6553600 407736 6145864    7% /
+tmpfs          2007715    186 2007529    1% /dev/shm
+tmpfs          2007715      4 2007711    1% /run/lock
+efivarfs             0      0       0     - /sys/firmware/efi/efivars
 
 Explanation:
 The df -i command displays inode usage for each mounted file system. It helps determine whether sufficient inodes are available for creating new files, even if disk space remains available.
 
 5. Storage health observations
 
-Command:
-lsblk
-mount
-df -h
-df -i
-
-Output:
-
 Explanation:
-The outputs of these commands provide a complete overview of the system's storage configuration and utilization. They help identify available storage devices, mounted file systems, disk space usage, and inode utilization, making it easier to detect storage-related issues and evaluate the overall health of the storage system.
+The storage information shows that the system has enough free disk space and low inode usage. The file systems are mounted properly, and the storage is in good condition for running applications.
 
 6. Recommendations for improving storage utilization
 
 Explanation:
-Regularly monitor disk usage and remove unnecessary files to free storage space. Cleaning temporary files, archiving old data, and extending storage capacity when required can improve storage utilization and maintain system performance.
+Regularly remove unnecessary files and monitor disk usage to keep enough free space available. This helps improve system performance and prevents storage-related problems.
 
