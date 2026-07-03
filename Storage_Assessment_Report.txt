@@ -1,0 +1,55 @@
+1. Available storage devices
+
+Command: lsblk
+
+Output:
+
+Explanation:
+The lsblk command lists all block storage devices connected to the system, including disks, partitions, and their mount points. It helps identify the available storage resources and their organization.
+
+2. Mounted file systems
+
+Command: mount
+
+Output:
+
+Explanation:
+The mount command displays all file systems currently mounted on the system. It shows the source device, mount point, file system type, and mount options used for each mounted file system.
+
+3. Disk usage statistics
+
+Command: df -h
+
+Output:
+
+Explanation:
+The df -h command displays the total, used, and available disk space for each mounted file system in a human-readable format. It helps monitor storage utilization and identify file systems that are running low on space.
+
+4. Inode utilization
+
+Command:
+df -i
+
+Output:
+
+Explanation:
+The df -i command displays inode usage for each mounted file system. It helps determine whether sufficient inodes are available for creating new files, even if disk space remains available.
+
+5. Storage health observations
+
+Command:
+lsblk
+mount
+df -h
+df -i
+
+Output:
+
+Explanation:
+The outputs of these commands provide a complete overview of the system's storage configuration and utilization. They help identify available storage devices, mounted file systems, disk space usage, and inode utilization, making it easier to detect storage-related issues and evaluate the overall health of the storage system.
+
+6. Recommendations for improving storage utilization
+
+Explanation:
+Regularly monitor disk usage and remove unnecessary files to free storage space. Cleaning temporary files, archiving old data, and extending storage capacity when required can improve storage utilization and maintain system performance.
+
