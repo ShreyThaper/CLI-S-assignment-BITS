@@ -1,0 +1,62 @@
+Creation of original, hard link and symbolic link
+
+Command:
+echo "This is the original file." > file.txt
+ln file.txt hardlink.txt
+ln -s file.txt symlink.txt
+
+Explanation:
+The above commands create the original file, a hard link, and a symbolic link. These files are used to study the behavior of different types of links in Linux.
+
+1. Inode numbers of all files
+
+Command: ls -li
+
+Output:
+total 0
+1187717 -rw-rw-r-- 2 shrey shrey 0 Jul  3 17:02 file.txt
+1187717 -rw-rw-r-- 2 shrey shrey 0 Jul  3 17:02 hardlink.txt
+1189479 lrwxrwxrwx 1 shrey shrey 8 Jul  3 17:02 symlink.txt -> file.txt
+
+Explanation:
+The ls -li command displays the inode numbers of all files. It helps identify whether different filenames refer to the same file.
+
+2. Comparison between hard link and symbolic link
+
+Explanation:
+The output shows that the hard link shares the same inode as the original file, while the symbolic link has a different inode.
+
+3. Effect of deleting the original file
+
+Command:
+rm file.txt
+ls -l
+cat hardlink.txt
+cat symlink.txt
+
+Output:
+no output for rm file.txt
+
+total 0
+-rw-rw-r-- 1 shrey shrey 0 Jul  3 17:02 hardlink.txt
+lrwxrwxrwx 1 shrey shrey 8 Jul  3 17:02 symlink.txt -> file.txt
+
+no output for cat hardlink.txt
+
+cat: symlink.txt: No such file or directory
+
+Explanation:
+After deleting the original file, the hard link continues to work because it still references the same inode. The symbolic link becomes invalid because its target file no longer exists.
+
+4. Metadata collected using Linux utilities
+
+Command:
+stat file.txt hardlink.txt symlink.txt
+
+Output:
+
+Explanation:
+The stat command displays detailed information about the files, including permissions, ownership, inode number, file size, and timestamps.
+
+Conclusion:
+The output demonstrates the difference between hard links and symbolic links in Linux. Hard links remain functional after the original file is deleted, whereas symbolic links stop working because they only reference the original file's path.
